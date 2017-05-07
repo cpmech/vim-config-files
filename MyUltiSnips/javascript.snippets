@@ -1,0 +1,99 @@
+snippet log
+console.log($1);
+endsnippet
+
+
+
+snippet rcomp
+// @flow
+
+import React from 'react';
+
+type PropsType = {
+};
+
+const $1 = (props: PropsType): React.Element<any> => {
+    const { $2 } = props;
+    return (
+        $3
+    );
+};
+
+export default $1;
+endsnippet
+
+
+
+snippet rclass
+// @flow
+
+import React from 'react';
+
+type PropsType = {
+};
+
+type StateType = {
+};
+
+class $1 extends React.Component<void, PropsType, StateType> {
+
+    state: StateType;
+
+    constructor(props: PropsType): void {
+        super(props);
+        (this: any).handleChange = this.handleChange.bind(this);
+        this.state = {
+        };
+    }
+
+    handleChange(event: SyntheticEvent): void {
+        if (event.target instanceof HTMLInputElement) {
+            const value = event.target.value;
+        } else {
+            throw new Error('type of event target element is incorrect');
+        }
+    }
+
+    render(): React.Element<any> {
+        return (
+            $2
+        );
+    }
+}
+
+export default $1;
+endsnippet
+
+
+
+snippet rxclass
+// @flow
+
+import React from 'react';
+
+import { store } from '../store';
+
+type PropsType = {
+};
+
+class $1 extends React.Component<void, PropsType, void> {
+
+    unsubscribe: () => void;
+
+    componentDidMount(): void {
+        this.unsubscribe = store.subscribe((): void => this.forceUpdate());
+    }
+
+    componentWillUnmount(): void {
+        this.unsubscribe();
+    }
+
+    render(): React.Element<any> {
+        return (
+            $2
+        );
+    }
+}
+
+export default $1;
+endsnippet
