@@ -8,6 +8,26 @@ setlocal noautoindent
 set spell
 set noai nocin nosi inde=
 
+"--- run on save ---------------------------
+
+let g:toggleRunOnSave = 0
+function! ToggleRunOnSave(...)
+  if a:0 == 1 "do toggle behaviour
+    let g:toggleRunOnSave = 1 - g:toggleRunOnSave
+    return
+  endif
+  if g:toggleRunOnSave == 0
+    "do nothing
+  else
+    !make
+  endif
+endfunction
+
+autocmd BufWritePost *.tex call ToggleRunOnSave()
+map <F4> :call ToggleRunOnSave(1)<CR>
+
+"------------------------------
+
 call IMAP ("THELLO", "\\documentclass{article}\<cr>\\title{<++>}\<cr>\\author{<++>}\<cr>\\begin{document}\<cr>\\maketitle\<cr><++>\<cr>\\end{document}", "tex")
 
 call IMAP ("eqq", "\\eqname~(\\ref{eqn:<++>})", "tex")

@@ -26,6 +26,14 @@ set laststatus=2
 filetype plugin on
 
 
+" ====================================================================================================
+" vim-devicons
+" ============
+"set encoding=utf8
+"set gfn=DroidSansMonoforPowerline\ Nerd\ Font\ 10
+set gfn=RobotoMono\ Nerd\ Font\ 10
+
+
 
 " ====================================================================================================
 " run on save
@@ -73,8 +81,9 @@ NeoBundle 'scrooloose/nerdtree'
 "NeoBundle 'vim-scripts/VisIncr'
 "NeoBundle 'terryma/vim-expand-region'
 "NeoBundle 'Shougo/neocomplete'
-NeoBundle 'kien/ctrlp.vim'
-"NeoBundle 'bling/vim-airline'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 "NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Valloric/YouCompleteMe'
@@ -84,6 +93,8 @@ NeoBundle 'garyburd/go-explorer'
 "NeoBundle 'helino/vim-json'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'nathanaelkane/vim-indent-guides' "<Leader>ig
 NeoBundle 'Olical/vim-syntax-expand'
 "NeoBundle 'easymotion/vim-easymotion'
@@ -93,6 +104,7 @@ NeoBundle 'vim-scripts/closetag.vim'
 "NeoBundle 'Townk/vim-autoclose' "bad0
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'ryanoasis/vim-devicons'
 
 " for javascript (JS)
 NeoBundle 'marijnh/tern_for_vim' " needs to go to .vim/bundle/tern_for_vim and type npm install
@@ -272,6 +284,7 @@ highlight link SyntasticStyleWarningSign SignColumn
 " =======
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
 
 
 
