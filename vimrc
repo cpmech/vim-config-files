@@ -33,8 +33,8 @@ if has("win32") || has("win64")
 else
     "set encoding=utf8
     "set gfn=DroidSansMonoforPowerline\ Nerd\ Font\ 10
-    "set gfn=RobotoMono\ Nerd\ Font\ 10
-    set gfn=RobotoMono\ 10
+    set gfn=RobotoMono\ Nerd\ Font\ 10
+    "set gfn=DejaVu\ Sans\ Mono\ 10
 endif
 
 
