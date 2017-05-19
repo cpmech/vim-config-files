@@ -8,6 +8,16 @@ Features:
 5. Added dictionary words
 6. Syntax highlighting for input, js, material, python, swig and tex files
 
+## Fonts
+
+Download nerd fonts:
+```bash
+cd ~/xpkg
+git clone https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+bash install.sh
+```
+
 ## Location on Windows
 
 The .vim directory goes as:
