@@ -16,8 +16,7 @@ set number "line numbers
 set relativenumber
 set hls
 "set mouse-=a "disable all mouse behaviour
-if has("win32") 
-	set guifont=Lucida_Console:h10:cDEFAULT
+if has("win32") || has("win64")
 	set bs=2 "Enabling backspace key
 	set mousemodel=extend " Sets click behaviour
 endif
@@ -27,11 +26,16 @@ filetype plugin on
 
 
 " ====================================================================================================
-" vim-devicons
-" ============
-"set encoding=utf8
-"set gfn=DroidSansMonoforPowerline\ Nerd\ Font\ 10
-set gfn=RobotoMono\ Nerd\ Font\ 10
+" fonts and vim-devicons
+" ======================
+if has("win32") || has("win64")
+	set guifont=Lucida_Console:h10:cDEFAULT
+else
+    "set encoding=utf8
+    "set gfn=DroidSansMonoforPowerline\ Nerd\ Font\ 10
+    "set gfn=RobotoMono\ Nerd\ Font\ 10
+    set gfn=RobotoMono\ 10
+endif
 
 
 
@@ -67,11 +71,19 @@ aug END
 " NeoBundle
 " =========
 if has('vim_starting')
-  set runtimepath+=/home/dorival/.vim/bundle/neobundle.vim/
+  if has("win32") || has("win64")
+    set runtimepath+=C:/Users/dorival/vimfiles/bundle/neobundle.vim/
+  else
+    set runtimepath+=/home/dorival/.vim/bundle/neobundle.vim/
+  endif
 endif
 
 " Required:
-call neobundle#begin(expand('/home/dorival/.vim/bundle'))
+if has("win32") || has("win64")
+  call neobundle#begin(expand('C:/Users/dorival/vimfiles/bundle'))
+else
+  call neobundle#begin(expand('/home/dorival/.vim/bundle'))
+endif
 
 " Let NeoBundle manage NeoBundle. Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -82,8 +94,6 @@ NeoBundle 'scrooloose/nerdtree'
 "NeoBundle 'terryma/vim-expand-region'
 "NeoBundle 'Shougo/neocomplete'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
 "NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Valloric/YouCompleteMe'
@@ -94,7 +104,7 @@ NeoBundle 'garyburd/go-explorer'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
+"NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'nathanaelkane/vim-indent-guides' "<Leader>ig
 NeoBundle 'Olical/vim-syntax-expand'
 "NeoBundle 'easymotion/vim-easymotion'
@@ -104,7 +114,11 @@ NeoBundle 'vim-scripts/closetag.vim'
 "NeoBundle 'Townk/vim-autoclose' "bad0
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'ryanoasis/vim-devicons'
+
+" Fancy
+"NeoBundle 'vim-airline/vim-airline'
+"NeoBundle 'vim-airline/vim-airline-themes'
+"NeoBundle 'ryanoasis/vim-devicons'
 
 " for javascript (JS)
 NeoBundle 'marijnh/tern_for_vim' " needs to go to .vim/bundle/tern_for_vim and type npm install
@@ -282,9 +296,9 @@ highlight link SyntasticStyleWarningSign SignColumn
 " ====================================================================================================
 " airline
 " =======
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#whitespace#enabled = 0
+"let g:airline_powerline_fonts = 1
 
 
 
