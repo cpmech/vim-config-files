@@ -33,6 +33,7 @@ call IMAP ("THELLO", "\\documentclass{article}\<cr>\\title{<++>}\<cr>\\author{<+
 call IMAP ("eqq", "\\eqname~(\\ref{eqn:<++>})", "tex")
 call IMAP ("fii", "\\figname~\\ref{fig:<++>}", "tex")
 call IMAP ("taa", "\\tabname~\\ref{tab:<++>}", "tex")
+call IMAP ("TAPP", "Appendix~(\\ref{<++>})", "tex")
 
 call IMAP ("TIT", "\\begin{itemize}\<cr>\\item <++>\<cr>\\end{itemize}<++>", "tex")
 
@@ -60,20 +61,6 @@ call IMAP ("TLS","\\begin{lstlisting}\<cr><++>\<cr>\\end{lstlisting}\<cr><++>","
 call IMAP ("TFI","\\begin{figure} \\centering\<cr>\\includegraphics[scale=1]{<++>}\<cr>\\caption{<++>}\<cr>\\label{fig:<++>}\<cr>\\end{figure}","tex")
 call IMAP ("TPI","\\parpic{\\includegraphics[width=8cm]{<++>}}\<cr>{\<cr>	<++>\<cr>}<++>", "tex")
 call IMAP ("TPP","\\piccaption{<++>}\<cr>\\parpic{\\includegraphics{<++>}}\<cr>{\<cr>	<++>\<cr>}<++>", "tex")
-
-call IMAP ("TSFI","
-\\\begin{figure}[H] \\centering\<cr>
-\\\subfloat[][]\<cr>
-\{\<cr>
-\\\includegraphics[width=8cm]{<++>}\<cr>
-\}\<cr>
-\\\subfloat[][]\<cr>
-\{\<cr>
-\\\includegraphics[width=8cm]{<++>}\<cr>
-\}\<cr>
-\\\caption{<++>} \<cr>
-\\\label{fig:<++>}\<cr>
-\\\end{figure}<++>","tex")
 
 call IMAP ("TSLI", "
 \\\begin{slide}{}\<cr>
