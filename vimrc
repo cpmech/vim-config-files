@@ -1,8 +1,6 @@
 " ====================================================================================================
 " basic configuration
 " ===================
-colorscheme molokai
-"colorscheme mycolorsv2
 syntax on
 set noswapfile
 set nocompatible
@@ -25,6 +23,18 @@ set laststatus=2
 filetype plugin on
 
 
+
+" ====================================================================================================
+" colors
+" ======
+if (has("termguicolors"))
+set termguicolors
+endif
+colorscheme molokai
+"colorscheme mycolorsv2
+
+
+
 " ====================================================================================================
 " fonts and vim-devicons
 " ======================
@@ -33,8 +43,12 @@ if has("win32") || has("win64")
 else
     "set encoding=utf8
     "set gfn=DroidSansMonoforPowerline\ Nerd\ Font\ 10
-    set gfn=RobotoMono\ Nerd\ Font\ 10
-    "set gfn=DejaVu\ Sans\ Mono\ 10
+    "set gfn=RobotoMono\ Nerd\ Font\ 10
+    "set gfn=BitstreamVeraSansMono\ Nerd\ Font\ 10
+    set gfn=DejaVu\ Sans\ Mono\ 10
+    "
+    "get current font with
+    ":set gfn?
 endif
 
 
@@ -92,7 +106,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 "NeoBundle 'vim-scripts/VisIncr'
 "NeoBundle 'terryma/vim-expand-region'
-"NeoBundle 'Shougo/neocomplete'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 "NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'majutsushi/tagbar'
@@ -114,6 +127,9 @@ NeoBundle 'vim-scripts/closetag.vim'
 "NeoBundle 'Townk/vim-autoclose' "bad0
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'honza/vim-snippets'
+
+" Colors
+NeoBundle 'mhartington/oceanic-next'
 
 " Fancy
 "NeoBundle 'vim-airline/vim-airline'
@@ -225,6 +241,9 @@ map  <S-F12>      :set ts=4 sts=4<CR>:Space2Tab<CR>:set ts=2 sts=2<CR>:Tab2Space
 map <C-o> :NERDTreeToggle<CR>
 "vnoremap 00 :Strikethrough<CR>
 
+nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
+nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR> 
+
 
 
 " ====================================================================================================
@@ -280,6 +299,7 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
 let g:syntastic_error_symbol = 'E'
 let g:syntastic_style_error_symbol = 'S'
@@ -366,19 +386,23 @@ let g:tex_conceal = ''
 
 
 " ====================================================================================================
-" YouCompleteMe and UltiSnips
-" ===========================
+" YouCompleteMe
+" =============
 set completeopt-=preview
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_complete_in_comments = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"let g:ycm_add_preview_to_completeopt=0
+"let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_complete_in_comments = 1
+"let g:ycm_seed_identifiers_with_syntax = 1
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " YCM-UltiSnips-SuperTab:
-let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<tab>'
+"let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<s-tab>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<tab>'
+"
+" ====================================================================================================
+" UltiSnips
+" =========
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger="<c-Space>"
@@ -405,6 +429,8 @@ let g:go_highlight_methods         = 1
 let g:go_highlight_structs         = 1
 let g:go_highlight_space_tab_error = 1
 let g:go_fmt_command = "goimports"
+let g:go_info_mode = "gocode"
+let g:go_def_mode = "godef"
 
 " show a list of interfaces which is implemented by the type under your cursor with <leader>s
 au FileType go nmap <Leader>s <Plug>(go-implements)
@@ -732,3 +758,15 @@ autocmd CursorMoved * call ToggleHighlight()
 map <C-F4> :call ToggleHighlight(1)<CR>
 
 endif "endif has("autocmd")
+
+
+
+" ====================================================================================================
+" search with centered cursor
+" ===========================
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
