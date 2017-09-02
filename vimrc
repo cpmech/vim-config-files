@@ -240,6 +240,7 @@ imap <C-F12> <ESC>:set invlist<CR>
 map  <S-F12>      :set ts=4 sts=4<CR>:Space2Tab<CR>:set ts=2 sts=2<CR>:Tab2Space<CR>
 map <C-o> :NERDTreeToggle<CR>
 "vnoremap 00 :Strikethrough<CR>
+map <C-S> :SyntasticToggleMode<CR>
 
 nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR> 
@@ -430,7 +431,10 @@ let g:go_highlight_structs         = 1
 let g:go_highlight_space_tab_error = 1
 let g:go_fmt_command = "goimports"
 let g:go_info_mode = "gocode"
-let g:go_def_mode = "godef"
+"let g:go_def_mode = "godef"
+
+" avoid showing two quickfix windows (Syntastic will be shown only)
+let g:go_fmt_fail_silently = 1
 
 " show a list of interfaces which is implemented by the type under your cursor with <leader>s
 au FileType go nmap <Leader>s <Plug>(go-implements)
