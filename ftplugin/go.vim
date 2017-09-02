@@ -51,10 +51,11 @@ call IMAP ("TUL","(*C.long)(unsafe.Pointer(&<++>[0]))", "go")
 call IMAP ("T{F","[]float64{<++>}","go")
 call IMAP ("T{I","[]int{<++>}","go")
 call IMAP ("TGM","yy := utl.GetMapped(xx, func(x float64) float64 { return <++> })","go")
-call IMAP ("TPLA","plt.Reset(true, &plt.A{WidthPt: 400, Dpi: 150})\<cr>plt.Plot(xx, yy, &plt.A{C: \"b\", Ls: \"-\", L: \"curve1\", NoClip: true})\<cr>plt.Gll(\"$x$\", \"$y$\", nil)\<cr>plt.HideTRborders()\<cr>plt.Save(\"/tmp\", \"figure01\")","go")
-call IMAP ("TPLB","xx := utl.LinSpace(<++>, <++>, <++>)\<cr>yy := utl.GetMapped(xx, func(x float64) float64 { return <++> })\<cr>plt.Reset(true, nil)\<cr>plt.Plot(xx, yy, &plt.A{C: \"r\", NoClip: true})\<cr>plt.Gll(\"$x$\", \"$y$\", nil)\<cr>plt.HideTRborders()\<cr>plt.Save(\"/tmp\", \"figure01\")","go")
+call IMAP ("TPLA","plt.Reset(true, &plt.A{WidthPt: 400, Dpi: 150})\<cr>plt.Plot(<++>, <++>, &plt.A{C: \"b\", Ls: \"-\", L: \"curve1\", NoClip: true})\<cr>plt.Gll(\"$x$\", \"$y$\", nil)\<cr>plt.HideTRborders()\<cr>err := plt.Save(\"/tmp<++>\", \"<++>\")\<cr>status(<++>err)","go")
+call IMAP ("TPLB","xx := utl.LinSpace(<++>, <++>, <++>)\<cr>yy := utl.GetMapped(xx, func(x float64) float64 { return <++> })\<cr>plt.Reset(true, nil)\<cr>plt.Plot(xx, yy, &plt.A{C: \"r\", NoClip: true})\<cr>plt.Gll(\"$x$\", \"$y$\", nil)\<cr>plt.HideTRborders()\<cr>err := plt.Save(\"/tmp<++>\", \"<++>\")\<cr>status(<++>err)","go")
 call IMAP ("TFUA","func(x float64) (float64, error) {\<cr>return <++>, nil\<cr>})", "go")
 call IMAP ("TFUB","func(x []float64) (float64, error) {\<cr>return <++>, nil\<cr>})", "go")
 call IMAP ("TFUC","func(f, x []float64) error {\<cr><++>\<cr>return nil\<cr>})", "go")
+call IMAP ("TSTA","func status(err error) {\<cr>if err != nil {\<cr>io.Pf(\"ERROR: %v\\n\", err)\<cr>os.Exit(1)\<cr>}\<cr>}", "go")
 
 "setlocal omnifunc=gocomplete#Complete
