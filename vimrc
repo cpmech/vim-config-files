@@ -46,6 +46,7 @@ else
     "set gfn=RobotoMono\ Nerd\ Font\ 10
     "set gfn=BitstreamVeraSansMono\ Nerd\ Font\ 10
     set gfn=DejaVu\ Sans\ Mono\ 10
+    "set gfn=Courier\ Prime\ 11
     "
     "get current font with
     ":set gfn?
@@ -111,7 +112,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'garyburd/go-explorer'
+"NeoBundle 'garyburd/go-explorer'
 "NeoBundle 'elzr/vim-json' "<<== DELETE
 "NeoBundle 'helino/vim-json'
 NeoBundle 'junegunn/vim-easy-align'
@@ -430,8 +431,8 @@ let g:go_highlight_methods         = 1
 let g:go_highlight_structs         = 1
 let g:go_highlight_space_tab_error = 1
 let g:go_fmt_command = "goimports"
-let g:go_info_mode = "gocode"
-"let g:go_def_mode = "godef"
+"let g:go_info_mode = "gocode"
+let g:go_def_mode = "godef"
 
 " avoid showing two quickfix windows (Syntastic will be shown only)
 let g:go_fmt_fail_silently = 1
