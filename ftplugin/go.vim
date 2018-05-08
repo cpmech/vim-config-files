@@ -59,5 +59,7 @@ call IMAP ("TFUA","func(x float64) (float64, error) {\<cr>return <++>, nil\<cr>}
 call IMAP ("TFUB","func(x []float64) (float64, error) {\<cr>return <++>, nil\<cr>})", "go")
 call IMAP ("TFUC","func(f, x []float64) error {\<cr><++>\<cr>return nil\<cr>})", "go")
 call IMAP ("TSTA","func status(err error) {\<cr>if err != nil {\<cr>io.Pf(\"ERROR: %v\\n\", err)\<cr>os.Exit(1)\<cr>}\<cr>}", "go")
+call IMAP ("TCOPY","// Copyright 2018 Janett Advisory Intel Inc. All rights reserved.\<cr>", "go")
+
 
 "setlocal omnifunc=gocomplete#Complete

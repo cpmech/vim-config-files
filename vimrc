@@ -140,10 +140,13 @@ NeoBundle 'mhartington/oceanic-next'
 " for javascript (JS)
 NeoBundle 'marijnh/tern_for_vim' " needs to go to .vim/bundle/tern_for_vim and type npm install
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'peitalin/vim-jsx-typescript'
+NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'flowtype/vim-flow'
-" NeoBundle 'mxw/vim-jsx' " for react (REACT) breaks ftplugin
 "NeoBundle 'justinj/vim-react-snippets'
+"NeoBundle 'mxw/vim-jsx' " for react (REACT) breaks ftplugin
+"NeoBundle 'ianks/vim-tsx' "does NOT WORK
 
 " for HTML
 NeoBundle 'mattn/emmet-vim'
