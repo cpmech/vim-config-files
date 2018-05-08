@@ -11,6 +11,7 @@ Features:
 ## Fonts
 
 Download nerd fonts:
+
 ```bash
 cd ~/xpkg
 git clone https://github.com/ryanoasis/nerd-fonts.git
@@ -21,15 +22,19 @@ bash install.sh
 ## Location on Windows
 
 The .vim directory goes as:
- ```
+
+```
 C:\Users\username\vimfiles
 ```
+
 And the vimrc file goes to:
+
 ```
 C:\Users\username\_vimrc
 ```
 
 Add the following path to the PATH environment variable:
+
 ```
 C:\Program Files (x86)\Vim\vim80
 ```
@@ -40,3 +45,10 @@ Download [ctags58.zip](http://prdownloads.sourceforge.net/ctags/ctags58.zip) fro
 http://ctags.sourceforge.net/
 
 Extract ctags.exe into `C:\TDM-GCC-64\bin`
+
+## Prettier
+
+```bash
+cd ~/.vim/bundle/vim-prettier
+yarn install
+```

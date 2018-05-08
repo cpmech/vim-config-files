@@ -144,6 +144,7 @@ NeoBundle 'peitalin/vim-jsx-typescript'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'flowtype/vim-flow'
+NeoBundle 'prettier/vim-prettier'
 "NeoBundle 'justinj/vim-react-snippets'
 "NeoBundle 'mxw/vim-jsx' " for react (REACT) breaks ftplugin
 "NeoBundle 'ianks/vim-tsx' "does NOT WORK
@@ -275,16 +276,29 @@ let g:tern_map_keys = 1
 "set concealcursor=nvic
 
 
+
+" ====================================================================================================
+" prettier
+" ========
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#tab_width = 2
+let g:prettier#config#print_width = 100
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+
+
 " ====================================================================================================
 " javascript
 " ==========
 let g:jsx_ext_required = 0
 
 
+
 " ====================================================================================================
 " flow type
 " =========
 let g:flow#enable = 1
+
 
 
 " ====================================================================================================
