@@ -142,7 +142,7 @@ NeoBundle 'marijnh/tern_for_vim' " needs to go to .vim/bundle/tern_for_vim and t
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'peitalin/vim-jsx-typescript'
 NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'flowtype/vim-flow'
 NeoBundle 'prettier/vim-prettier'
 "NeoBundle 'justinj/vim-react-snippets'
@@ -280,6 +280,8 @@ let g:tern_map_keys = 1
 " ====================================================================================================
 " prettier
 " ========
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#parser = 'flow'
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#tab_width = 2
 let g:prettier#config#print_width = 100
@@ -309,9 +311,8 @@ set statusline+=%#warningmsg#
 set statusline+=%*
 
 " NEEDS:
-"   sudo npm install -g eslint babel-eslint eslint-plugin-flowtype eslint-plugin-react
-"let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
+"let g:syntastic_javascript_checkers = ['eslint']
 let g:javascript_plugin_flow = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
