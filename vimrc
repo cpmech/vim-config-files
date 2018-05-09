@@ -140,14 +140,16 @@ NeoBundle 'mhartington/oceanic-next'
 " for javascript (JS)
 NeoBundle 'marijnh/tern_for_vim' " needs to go to .vim/bundle/tern_for_vim and type npm install
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'peitalin/vim-jsx-typescript'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'flowtype/vim-flow'
 NeoBundle 'prettier/vim-prettier'
-"NeoBundle 'justinj/vim-react-snippets'
+NeoBundle 'chemzqm/vim-jsx-improve'
+"NeoBundle 'maxmellon/vim-jsx-pretty'
+"NeoBundle 'peitalin/vim-jsx-typescript'
 "NeoBundle 'mxw/vim-jsx' " for react (REACT) breaks ftplugin
 "NeoBundle 'ianks/vim-tsx' "does NOT WORK
+"NeoBundle 'justinj/vim-react-snippets'
 
 " for HTML
 NeoBundle 'mattn/emmet-vim'
@@ -300,6 +302,17 @@ let g:jsx_ext_required = 0
 " flow type
 " =========
 let g:flow#enable = 1
+let g:flow#autoclose = 1
+
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
+
 
 
 

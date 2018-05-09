@@ -79,10 +79,20 @@ yarn run flow init
   },
   "rules": {
     "indent": ["error", 2],
-    "no-console": ["error", {"allow": ["warn", "error"]}],
-    "max-len": ["error", {"code": 300}],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "max-len": ["error", { "code": 300 }],
     "react/no-find-dom-node": "off",
     "prettier/prettier": "error"
   }
 }
 ```
+
+## YouCompleteME
+
+python install.py --go-completer --js-completer --tern-completer
+
+* Go support: install [Go][go-install] and add it to your path. Navigate to
+  `YouCompleteMe/third_party/ycmd/third_party/gocode` and run `go build`.
+
+* JavaScript support: install [Node.js and npm][npm-install]. Then navigate
+  to `YouCompleteMe/third_party/ycmd/third_party/tern_runtime` and run `npm install --production`
