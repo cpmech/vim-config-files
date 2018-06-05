@@ -21,3 +21,9 @@ call IMAP ("TRCC","import React from 'react';\<cr>\<cr>type IProps = {\<cr>props
 
 " template-react-component-functional
 call IMAP ("TRCF", "import React from 'react';\<cr>\<cr>type IProps = {\<cr>data: number,\<cr>};\<cr>\<cr>const <++> = (props: IProps) => {\<cr>const { data } = props;\<cr>return (\<cr><div>\<cr><p>Data</p>\<cr><p>{data}</p>\<cr></div>\<cr>);\<cr>};\<cr>\<cr>export default <++>;", "javascript")
+
+" template-vue-store-login
+call IMAP ("TVSTOL", "import axios from 'axios';\<cr>\<cr>const state = {\<cr>}\<cr>\<cr>const mutations = {\<cr>}\<cr>\<cr>const actions = {\<cr>}\<cr>\<cr>const getters = {\<cr>}\<cr>\<cr>const loginModule = {\<cr>state,\<cr>mutations,\<cr>actions,\<cr>getters\<cr>}\<cr>\<cr>export default loginModule;\<cr>", "javascript")
+
+" template-vue-store-index
+call IMAP ("TVSTOI", "import Vue from 'vue';\<cr>import Vuex from 'vuex';\<cr>import login from './modules/login';\<cr>\<cr>Vue.use(Vuex);\<cr>\<cr>export default new Vuex.Store({\<cr>modules: {\<cr>login\<cr>}\<cr>});", "javascript")

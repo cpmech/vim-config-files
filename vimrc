@@ -105,32 +105,32 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'scrooloose/nerdtree'
-"NeoBundle 'vim-scripts/VisIncr'
-"NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-"NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'fatih/vim-go'
-"NeoBundle 'garyburd/go-explorer'
-"NeoBundle 'elzr/vim-json' "<<== DELETE
-"NeoBundle 'helino/vim-json'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'nathanaelkane/vim-indent-guides' "<Leader>ig
 NeoBundle 'Olical/vim-syntax-expand'
-"NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'joequery/Stupid-EasyMotion'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'vim-scripts/closetag.vim'
-"NeoBundle 'Townk/vim-autoclose' "bad0
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'honza/vim-snippets'
 
 " Colors
 NeoBundle 'mhartington/oceanic-next'
+
+" camelcase
+NeoBundle 'tpope/vim-abolish'
+
+" vue
+NeoBundle 'posva/vim-vue'
+
+" typescript
+NeoBundle 'leafgarland/typescript-vim'
 
 " Fancy
 "NeoBundle 'vim-airline/vim-airline'
@@ -138,30 +138,35 @@ NeoBundle 'mhartington/oceanic-next'
 "NeoBundle 'ryanoasis/vim-devicons'
 
 " for javascript (JS)
-NeoBundle 'marijnh/tern_for_vim' " needs to go to .vim/bundle/tern_for_vim and type npm install
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'vim-syntastic/syntastic'
-NeoBundle 'flowtype/vim-flow'
-NeoBundle 'prettier/vim-prettier'
-NeoBundle 'chemzqm/vim-jsx-improve'
-"NeoBundle 'maxmellon/vim-jsx-pretty'
-"NeoBundle 'peitalin/vim-jsx-typescript'
-"NeoBundle 'mxw/vim-jsx' " for react (REACT) breaks ftplugin
-"NeoBundle 'ianks/vim-tsx' "does NOT WORK
-"NeoBundle 'justinj/vim-react-snippets'
+"NeoBundle 'marijnh/tern_for_vim' " needs to go to .vim/bundle/tern_for_vim and type npm install
+"NeoBundle 'pangloss/vim-javascript'
+"NeoBundle 'vim-syntastic/syntastic'
+"NeoBundle 'flowtype/vim-flow'
+"NeoBundle 'prettier/vim-prettier'
+"NeoBundle 'chemzqm/vim-jsx-improve'
 
 " for HTML
-NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'mattn/emmet-vim'
 
-" for Julia
-NeoBundle 'JuliaEditorSupport/julia-vim'
+" for JS => to remove
+"""""NeoBundle 'maxmellon/vim-jsx-pretty'
+"""""NeoBundle 'peitalin/vim-jsx-typescript'
+"""""NeoBundle 'mxw/vim-jsx' " for react (REACT) breaks ftplugin
+"""""NeoBundle 'ianks/vim-tsx' "does NOT WORK
+"""""NeoBundle 'justinj/vim-react-snippets'
 
-" camelcase
-NeoBundle 'tpope/vim-abolish'
-
-" for tex
-"NeoBundle 'lervag/vimtex'
+" to remove
+"""""NeoBundle 'garyburd/go-explorer'
+"""""NeoBundle 'elzr/vim-json' "<<== DELETE
+"""""NeoBundle 'helino/vim-json'
+"""""NeoBundle 'airblade/vim-gitgutter'
+"""""NeoBundle 'easymotion/vim-easymotion'
+"""""NeoBundle 'Townk/vim-autoclose' "bad0
+"""""NeoBundle 'vim-scripts/VisIncr'
+"""""NeoBundle 'terryma/vim-expand-region'
+"""""NeoBundle 'davidhalter/jedi-vim'
+"""""NeoBundle 'JuliaEditorSupport/julia-vim'
+"""""NeoBundle 'lervag/vimtex'
 
 " Required:
 call neobundle#end()
@@ -253,6 +258,12 @@ nnoremap <leader>y :let g:ycm_auto_trigger=0<CR>
 nnoremap <leader>Y :let g:ycm_auto_trigger=1<CR> 
 
 
+" ====================================================================================================
+" Nerd tree
+" =========
+let g:NERDTreeWinPos = "right"
+
+
 
 " ====================================================================================================
 " EasyMotion
@@ -288,7 +299,7 @@ let g:prettier#config#single_quote = 'true'
 let g:prettier#config#tab_width = 2
 let g:prettier#config#print_width = 100
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
 
 
 " ====================================================================================================
@@ -303,15 +314,6 @@ let g:jsx_ext_required = 0
 " =========
 let g:flow#enable = 1
 let g:flow#autoclose = 1
-
-"Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
 
 
 
@@ -332,7 +334,8 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+"let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+let g:syntastic_go_checkers = ['go', 'errcheck']
 
 let g:syntastic_error_symbol = 'E'
 let g:syntastic_style_error_symbol = 'S'
